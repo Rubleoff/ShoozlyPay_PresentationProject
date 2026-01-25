@@ -1,0 +1,175 @@
+.adminPanel {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.tab {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #8e8e93;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: -2px;
+}
+
+.tab:hover {
+  color: #000000;
+}
+
+.tab.active {
+  color: #007aff;
+  border-bottom-color: #007aff;
+}
+
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.listTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 12px;
+}
+
+.listItemInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.listItemIcon {
+  font-size: 24px;
+}
+
+.listItemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.listItemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.listItemName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.listItemPrice {
+  font-size: 14px;
+  color: #8e8e93;
+}
+
+.discount {
+  color: #ff3b30;
+  font-weight: 600;
+}
+
+.listItemActions {
+  display: flex;
+  gap: 8px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.editButton {
+  background: #007aff;
+  color: #ffffff;
+}
+
+.editButton:hover {
+  background: #0051d5;
+}
+
+.deleteButton {
+  background: #ff3b30;
+  color: #ffffff;
+}
+
+.deleteButton:hover {
+  background: #d32f2f;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .adminPanel {
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .tab {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .listItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .listItemActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .editButton,
+  .deleteButton {
+    flex: 1;
+  }
+}

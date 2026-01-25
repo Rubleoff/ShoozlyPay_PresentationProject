@@ -1,0 +1,20 @@
+.homePage {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 80px; /* Отступ для кнопки корзины */
+}
+
+.content {
+  padding: 20px 0;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .homePage {
+    padding-bottom: 70px;
+  }
+  
+  .content {
+    padding: 16px 0;
+  }
+}

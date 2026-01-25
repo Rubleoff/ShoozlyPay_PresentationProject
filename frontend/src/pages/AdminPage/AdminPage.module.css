@@ -1,0 +1,12 @@
+.adminPage {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 20px 0;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .adminPage {
+    padding: 16px 0;
+  }
+}

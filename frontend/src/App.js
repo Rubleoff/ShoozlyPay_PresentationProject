@@ -1,38 +1,54 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { CartProvider } from './contexts/CartContext';
+import { fetchProducts } from './api/api';
+import HomePage from './pages/HomePage/HomePage';
+import AdminPage from './pages/AdminPage/AdminPage';
 import './App.css';
-//some code
 
-
-
-
-
-
-
-
-
-
-
-
-
-//...
+/**
+ * Главный компонент приложения
+ * Настраивает роутинг и провайдер корзины
+ */
 function App() {
+  const [products, setProducts] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  // Загружаем товары для контекста корзины
+  useEffect(() => {
+    const loadProducts = async () => {
+      const productsData = await fetchProducts();
+      setProducts(productsData);
+    };
+    loadProducts();
+  }, []);
+
+  // Проверка админ режима (в реальном приложении через бэкенд)
+  useEffect(() => {
+    // Для демо можно добавить параметр в URL: ?admin=true
+    const urlParams = new URLSearchParams(window.location.search);
+    setIsAdmin(urlParams.get('admin') === 'true');
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <CartProvider products={products}>
+        <div className="App">
+          {/* Навигация для переключения между страницами (для разработки) */}
+          {process.env.NODE_ENV === 'development' && (
+            <nav className="dev-nav">
+              <Link to="/">Главная</Link>
+              <Link to="/admin">Админ панель</Link>
+            </nav>
+          )}
+          
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/admin" element={<AdminPage />} />
+          </Routes>
+        </div>
+      </CartProvider>
+    </Router>
   );
 }
 

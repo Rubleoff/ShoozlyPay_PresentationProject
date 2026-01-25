@@ -1,0 +1,49 @@
+.cartButton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: #007aff;
+  color: #ffffff;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease;
+}
+
+.cartButton:hover {
+  background: #0051d5;
+}
+
+.cartIcon {
+  font-size: 24px;
+}
+
+.cartText {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .cartButton {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  
+  .cartIcon {
+    font-size: 20px;
+  }
+  
+  .cartText {
+    font-size: 16px;
+  }
+}
